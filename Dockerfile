@@ -67,10 +67,7 @@ RUN chown -R www-data: /var/www
 RUN cd /var/www && \
     composer install && \
     composer update && \
-    cp .env.example .env && \
-    php artisan key:generate && \
     chmod 777 -R storage bootstrap public && \
-    php artisan make:auth && \
     php artisan config:cache && \
     php artisan migrate
 EXPOSE 80 443
